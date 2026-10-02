@@ -21,7 +21,11 @@ export class UsersService {
         return this.usersRepository.find();
     }
     async findByEmail(email: string): Promise<UserCreateEntity | null> {
-        return this.usersRepository.findOne({ where: { email } });
+        return this.usersRepository
+            .createQueryBuilder('user')
+            .addSelect('user.password')
+            .where('user.email = :email', { email })
+            .getOne();
     }
 
     async findById(id: string): Promise<UserCreateEntity | null> {

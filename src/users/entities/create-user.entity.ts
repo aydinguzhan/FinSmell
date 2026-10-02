@@ -26,7 +26,7 @@ export class UserCreateEntity extends BaseEntity {
     @Column({ nullable: false })
     last_name: string;
 
-    @Column({ nullable: false })
+    @Column({ nullable: false, select: false })
     password: string;
 
     @Column({ type: 'enum', enum: Role, default: Role.USER })

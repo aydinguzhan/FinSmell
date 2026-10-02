@@ -6,8 +6,6 @@ import {
   MinLength,
 } from 'class-validator';
 export class CreateUserDto {
-
-  id: string;
   @IsEmail()
   email: string;
 

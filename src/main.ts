@@ -10,8 +10,12 @@ async function bootstrap() {
     new ValidationPipe({
       whitelist: true,
       transform: true,
+      // forbidNonWhitelisted: true, // DTO'da olmayan alan gönderilirse hatayla reddeder
     }),
+
   );
+  app.enableShutdownHooks();
+
   await app.listen(Number(configService.get<string>('PORT') ?? 3000));
 }
 await bootstrap();

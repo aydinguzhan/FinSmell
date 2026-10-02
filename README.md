@@ -78,7 +78,7 @@ docker compose up postgres
 | --- | --- | --- |
 | `POST` | `/auth/register` | Kullanıcı kaydı oluşturur |
 | `POST` | `/auth/login` | Başarılı girişte JWT access token döner |
-| `GET` | `/users` | Kullanıcıları listeler |
+| `GET` | `/users` | Kullanıcıları listeler; Bearer token gerekir |
 
 Kayıt isteği örneği:
 
@@ -105,6 +105,8 @@ JWT ile korunan bir endpoint'e istek atarken header'a token eklenir:
 ```http
 Authorization: Bearer <access_token>
 ```
+
+`/auth/register` ve `/auth/login` dışındaki endpoint'ler JWT doğrulaması ister.
 
 ## Komutlar
 
